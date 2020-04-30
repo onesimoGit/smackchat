@@ -27,13 +27,25 @@
         </q-toolbar-title>
 
         <q-btn
+          v-if='!detalhesDoUsuario.online'
           flat
           dense
           round
           icon="account_circle"
           class='absolute-right'
-          to='/auth'
         />
+        <q-btn
+          v-if='detalhesDoUsuario.online'
+          flat
+          dense
+          round
+          icon="account_circle"
+          class='absolute-right'
+          label="Terminar sessão"
+          @click="logoutUser"
+        >
+          {{ detalhesDoUsuario.nome }}
+        </q-btn>
       </q-toolbar>
     </q-header>
 
@@ -44,6 +56,9 @@
 </template>
 
 <script>
+
+import { mapState, mapActions } from 'vuex'
+
 export default {
   name: 'MyLayout',
 
@@ -53,6 +68,8 @@ export default {
     }
   },
   computed: {
+    ...mapState('data', ['detalhesDoUsuario']),
+
     titulo () {
       let titulo = ''
 
@@ -65,6 +82,12 @@ export default {
       }
 
       return titulo
+    }
+  },
+  methods: {
+    ...mapActions('data', ['logout']),
+    logoutUser () {
+      this.logout()
     }
   }
 }

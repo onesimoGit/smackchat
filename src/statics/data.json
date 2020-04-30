@@ -1,19 +1,19 @@
 {
 	"users": {
-		"555": {
-			"name": "Vivi",
-			"email": "vivi@gostosa.com",
+		"wYhjstmLkMhtKcEiI0LCJHLdFu42": {
+			"name": "Vera",
+			"email": "vera@gostosa.com",
 			"online": true
 		},
-		"645": {
+		"5K3nl8Ujm8doLiX7MWEBDHOSWII2": {
 			"name": "Lily",
 			"email": "lily@gostosa.com",
 			"online": true
 		}
 	},
 	"chats": {
-		"555": {
-			"645": {
+		"wYhjstmLkMhtKcEiI0LCJHLdFu42": {
+			"5K3nl8Ujm8doLiX7MWEBDHOSWII2": {
 				"chat1": {
 					"text": "Olá louca",
 					"from": "me"
@@ -24,8 +24,8 @@
 				}
 			}
 		},
-		"645": {
-			"555": {
+		"5K3nl8Ujm8doLiX7MWEBDHOSWII2": {
+			"wYhjstmLkMhtKcEiI0LCJHLdFu42": {
 				"chat1": {
 					"text": "Olá louca",
 					"from": "them"

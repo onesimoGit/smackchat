@@ -1,6 +1,5 @@
 <template>
   <div>
-    <pre>{{ detalhesDoUsuario }}</pre>
 
     <h5>{{ tab }}</h5>
 
@@ -55,7 +54,7 @@
 
 <script>
 
-import { mapActions, mapState } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'LoginRegister',
@@ -64,13 +63,10 @@ export default {
     return {
       formulario: {
         nome: '',
-        email: '',
-        password: ''
+        email: 'vera@gostosa.com',
+        password: 'veravera'
       }
     }
-  },
-  computed: {
-    ...mapState('data', ['detalhesDoUsuario'])
   },
   methods: {
     ...mapActions('data', ['registar', 'login']),
