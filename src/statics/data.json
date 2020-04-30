@@ -1,0 +1,40 @@
+{
+	"users": {
+		"555": {
+			"name": "Vivi",
+			"email": "vivi@gostosa.com",
+			"online": true
+		},
+		"645": {
+			"name": "Lily",
+			"email": "lily@gostosa.com",
+			"online": true
+		}
+	},
+	"chats": {
+		"555": {
+			"645": {
+				"chat1": {
+					"text": "Olá louca",
+					"from": "me"
+				},
+				"chat2": {
+					"text": "Vamo ao bar",
+					"from": "them"
+				}
+			}
+		},
+		"645": {
+			"555": {
+				"chat1": {
+					"text": "Olá louca",
+					"from": "them"
+				},
+				"chat2": {
+					"text": "Vamo ao bar",
+					"from": "me"
+				}
+			}
+		}
+	}
+}

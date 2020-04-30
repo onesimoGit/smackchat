@@ -1,12 +1,14 @@
 <template>
   <div>
+    <pre>{{ detalhesDoUsuario }}</pre>
+
     <h5>{{ tab }}</h5>
 
     <q-form @submit='submeter' >
       <q-input
       color="teal"
       filled
-      v-model="nome"
+      v-model="formulario.nome"
       label="Nome"
       v-if="tab == 'registar'" >
 
@@ -19,7 +21,7 @@
       color="teal"
       filled
       type='email'
-      v-model="email"
+      v-model="formulario.email"
       label="Email"
       class='q-pt-md' >
 
@@ -32,7 +34,7 @@
       color="teal"
       filled
       type='password'
-      v-model="password"
+      v-model="formulario.password"
       label="Password"
       class='q-pt-md' >
 
@@ -44,7 +46,8 @@
       <q-btn
       color='green'
       type='submit'
-      :label='tab' />
+      :label='tab'
+      class='q-mt-xs' />
     </q-form>
 
   </div>
@@ -52,22 +55,31 @@
 
 <script>
 
+import { mapActions, mapState } from 'vuex'
+
 export default {
   name: 'LoginRegister',
   props: ['tab'],
   data () {
     return {
-      nome: '',
-      email: '',
-      password: ''
+      formulario: {
+        nome: '',
+        email: '',
+        password: ''
+      }
     }
   },
+  computed: {
+    ...mapState('data', ['detalhesDoUsuario'])
+  },
   methods: {
+    ...mapActions('data', ['registar', 'login']),
+
     submeter () {
       if (this.tab === 'login') {
-        console.log('para login')
+        this.login(this.formulario)
       } else if (this.tab === 'registar') {
-        console.log('para registar')
+        this.registar(this.formulario)
       }
     }
   }
