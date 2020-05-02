@@ -63,8 +63,8 @@ export default {
     return {
       formulario: {
         nome: '',
-        email: 'vera@gostosa.com',
-        password: 'veravera'
+        email: '@gostosa.com',
+        password: ''
       }
     }
   },

@@ -5,22 +5,22 @@
     </q-toolbar>
 
     <q-list bordered >
-      <q-item v-for="user in users" :key="user.id" class="q-my-sm" clickable v-ripple to='/chat' >
+      <q-item v-for="(ela, key) in elas" :key="key" class="q-my-sm" clickable v-ripple :to="'/chat/' + key" >
         <q-item-section avatar >
           <q-avatar color="primary" text-color="white" >
-            {{ user.name.charAt(0) }}
+            {{ ela.name.charAt(0) }}
           </q-avatar>
         </q-item-section>
 
         <q-item-section>
-          <q-item-label>{{ user.name }}</q-item-label>
+          <q-item-label>{{ ela.name }}</q-item-label>
         </q-item-section>
 
         <q-item-section side >
           <q-badge
-          :color="user.online ? 'light-green' : 'grey-6'"
+          :color="ela.online ? 'light-green' : 'grey-6'"
           >
-          {{ user.online ? 'online' : 'offline' }}
+          {{ ela.online ? 'online' : 'offline' }}
           </q-badge>
         </q-item-section>
       </q-item>
@@ -30,29 +30,18 @@
 </template>
 
 <script>
+
+import { mapState } from 'vuex'
+
 export default {
   data () {
     return {
-      users: [
-        {
-          id: 2324,
-          name: 'Vera',
-          online: true
-        },
-        {
-          id: 3444,
-          name: 'Lily',
-          online: false
-        },
-        {
-          id: 4311,
-          name: 'Louca',
-          online: true
-        }
-      ]
     }
   },
   methods: {
+  },
+  computed: {
+    ...mapState('data', ['elas', 'detalhesDoUsuario'])
   }
 }
 </script>

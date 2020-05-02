@@ -1,5 +1,9 @@
 <template>
   <q-layout view="lHh Lpr lFf" >
+    <br>
+    <pre>
+      {{ detalhesDoUsuario }}
+    </pre>
     <q-header elevated >
       <q-toolbar>
         <q-btn
@@ -59,9 +63,11 @@
 
 import { mapState, mapActions } from 'vuex'
 
+import usuarioAConversar from '../mixins/usuarioAConversar'
+
 export default {
   name: 'MyLayout',
-
+  mixins: [ usuarioAConversar ],
   data () {
     return {
       leftDrawerOpen: false
@@ -78,7 +84,7 @@ export default {
       } else if (this.$route.fullPath === '/auth') {
         titulo = 'Página de Autenticação'
       } else {
-        titulo = 'Página de Chat'
+        titulo = this.usuarioAConversar.name
       }
 
       return titulo
