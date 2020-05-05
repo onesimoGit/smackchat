@@ -43,7 +43,7 @@ const mutations = {
   },
   adicionarMensagens (state, payload) {
     Vue.set(state.messages, payload.id, payload.message)
-    console.log(state.messages)
+  //  console.log(state.messages)
   },
   clearMessages (state) {
     state.messages = {}

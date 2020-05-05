@@ -1,6 +1,8 @@
 <template>
 
-  <q-page class='flex column' >
+  <q-page
+    ref='chatPage'
+    class='flex column' >
     <q-banner v-if='!usuarioAConversar.online' class='text-black-4 bg-grey-6' >
       {{ usuarioAConversar.name }} Perdeu conexão com a internet
     </q-banner>
@@ -9,7 +11,7 @@
     </q-banner>
 
     <!-- chat message -->
-    <div class="column col justify-end" >
+    <div :class="{ 'invisible' : !showMessages }" class="column col justify-end" >
       <q-chat-message
       v-for='(message, key) in messages'
       :key='key'
@@ -31,6 +33,7 @@
           outlined
           dense
           bg-color='white'
+          ref='nuMessage'
           >
             <template v-slot:after >
               <q-btn round dense flat icon="send" type="submit" @click='submeter' />
@@ -62,7 +65,9 @@ export default {
       message: {
         text: '',
         from: 'eu'
-      }
+      },
+
+      showMessages: false
     }
   },
   methods: {
@@ -83,6 +88,18 @@ export default {
         },
         otherUserId: otherUSer
       })
+
+      this.clearMessage()
+    },
+    scrollToBottom () {
+      let chatPage = this.$refs.chatPage.$el
+      setTimeout(() => {
+        window.scrollTo(0, chatPage.scrollHeight)
+      }, 20)
+    },
+    clearMessage () {
+      this.message.text = ''
+      this.$refs.nuMessage.focus()
     }
   },
   mounted () {
@@ -93,6 +110,16 @@ export default {
   },
   destroyed () {
     this.stopGettingMessages()
+  },
+  watch: {
+    messages: function (val) {
+      if (Object.keys(val).length) {
+        this.scrollToBottom()
+        setTimeout(() => {
+          this.showMessages = true
+        }, 300)
+      }
+    }
   }
 }
 </script>
