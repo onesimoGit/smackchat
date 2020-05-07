@@ -109,10 +109,10 @@ const actions = {
             }
           })
 
-          this.$router.push('/')
+          this.$router.push('/users')
         })
       } else {
-        console.log('Ninguem logado nessuno')
+        console.log('Ninguem logado')
 
         console.log('state.detalhesDoUsuario.id')
         console.log(state.detalhesDoUsuario.id)
