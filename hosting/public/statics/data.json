@@ -1,0 +1,40 @@
+{
+	"users": {
+		"wYhjstmLkMhtKcEiI0LCJHLdFu42": {
+			"name": "vera",
+			"email": "vera@gostosa.com",
+			"online": true
+		},
+		"5K3nl8Ujm8doLiX7MWEBDHOSWII2": {
+			"name": "Lily",
+			"email": "lily@gostosa.com",
+			"online": true
+		}
+	},
+	"chats": {
+		"wYhjstmLkMhtKcEiI0LCJHLdFu42": {
+			"5K3nl8Ujm8doLiX7MWEBDHOSWII2": {
+				"chat1": {
+					"text": "Olá louca",
+					"from": "me"
+				},
+				"chat2": {
+					"text": "Vamo ao bar",
+					"from": "them"
+				}
+			}
+		},
+		"5K3nl8Ujm8doLiX7MWEBDHOSWII2": {
+			"wYhjstmLkMhtKcEiI0LCJHLdFu42": {
+				"chat1": {
+					"text": "Olá louca",
+					"from": "them"
+				},
+				"chat2": {
+					"text": "Vamo ao bar",
+					"from": "me"
+				}
+			}
+		}
+	}
+}
