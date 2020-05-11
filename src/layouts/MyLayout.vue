@@ -1,10 +1,8 @@
 <template>
-  <q-layout view="lHh Lpr lFf" >
+  <q-layout class='q-layout' view="lHh Lpr lFf" >
     <br>
-    <pre>
-      {{ detalhesDoUsuario }}
-    </pre>
-    <q-header elevated >
+
+    <q-header class='q-header' elevated >
       <q-toolbar>
         <q-btn
           v-if="$route.fullPath.includes('chat')"
@@ -13,7 +11,7 @@
           dense
           round
           icon="arrow_back"
-          label="Voltar"
+          label=""
         />
 
         <q-btn
@@ -23,11 +21,11 @@
           dense
           round
           icon="arrow_back"
-          label="Voltar"
+          label=""
         />
 
         <q-toolbar-title>
-          {{ titulo }}
+          <b>{{ titulo }}</b>
         </q-toolbar-title>
 
         <q-btn
@@ -44,11 +42,10 @@
           dense
           round
           icon="account_circle"
-          class='absolute-right'
+          class='q-mr-sm q-btn absolute-right text-weight-bold'
           label="Terminar sessão"
           @click="logoutUser"
         >
-          {{ detalhesDoUsuario.nome }}
         </q-btn>
       </q-toolbar>
     </q-header>
@@ -97,7 +94,11 @@ export default {
     }
   }
 }
+
 </script>
 
-<style>
+<style lang='stylus' scoped >
+  .q-layout
+    font-family: Open Sans Condensed
+
 </style>

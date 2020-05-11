@@ -1,7 +1,8 @@
 <template>
   <div>
 
-    <h5>{{ tab }}</h5>
+    <h5 v-if="tab == 'login'" ><b>Login</b></h5>
+    <h5 v-else ><b>Registar</b></h5>
 
     <q-form @submit='submeter' >
       <q-input
@@ -9,7 +10,9 @@
       filled
       v-model="formulario.nome"
       label="Nome"
-      v-if="tab == 'registar'" >
+      v-if="tab == 'registar'"
+      square
+      style='font-size: 16px' >
 
         <template v-slot:prepend >
           <q-icon name="event" />
@@ -22,7 +25,8 @@
       type='email'
       v-model="formulario.email"
       label="Email"
-      class='q-pt-md' >
+      class='q-pt-md'
+      style='font-size: 16px' >
 
         <template v-slot:prepend >
           <q-icon name="event" />
@@ -35,7 +39,8 @@
       type='password'
       v-model="formulario.password"
       label="Password"
-      class='q-pt-md' >
+      class='q-pt-md'
+      square >
 
         <template v-slot:prepend >
           <q-icon name="event" />
@@ -43,10 +48,11 @@
       </q-input>
 
       <q-btn
-      color='green'
-      type='submit'
-      :label='tab'
-      class='q-mt-xs' />
+        color='green'
+        type='submit'
+        :label='tab'
+        class='text-weight-bold q-mt-lg'
+        square />
     </q-form>
 
   </div>

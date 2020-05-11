@@ -2,41 +2,54 @@
 
   <q-page
     ref='chatPage'
-    class='flex column' >
-    <q-banner v-if='!usuarioAConversar.online' class='text-black-4 bg-grey-6' >
-      {{ usuarioAConversar.name }} Perdeu conexão com a internet
-    </q-banner>
-    <q-banner v-else class='text-black-4 bg-green-6' >
-      Onlelainyyyyy
+    class='q-page flex column' >
+    <q-banner
+      v-if='!usuarioAConversar.online'
+      class='text-black-4 bg-grey-6' >
+      <b>{{ usuarioAConversar.name }}</b> Não está online
     </q-banner>
 
+    <br><br>
+
     <!-- chat message -->
-    <div :class="{ 'invisible' : !showMessages }" class="column col justify-end" >
+    <div
+      :class="{ 'invisible' : !showMessages }"
+      class="column col justify-end q-px-md" >
+
       <q-chat-message
-      v-for='(message, key) in messages'
-      :key='key'
-      :text="[message.text]"
-      :name="message.from == 'eu' ? 'eu' : usuarioAConversar.name"
-      :from="message.from"
-      :sent="message.from == 'eu' ? true : false"
+        style='font-size: 16px'
+        v-for='(message, key) in messages'
+        :key='key'
+        :text="[message.text]"
+        :name="message.from == 'eu' ? 'eu' : usuarioAConversar.name"
+        :from="message.from"
+        :sent="message.from == 'eu' ? true : false"
+        class='text-weight-bold'
       />
     </div>
 
     <!-- o foooter -->
-    <q-footer>
-      <q-toolbar>
+    <q-footer class='bg-white q-pt-lg' >
+      <q-toolbar class='bg-white q-footer' >
 
         <q-form @submit='submeter' class='full-width' >
           <q-input
           v-model="message.text"
           label="Mensagem"
-          outlined
           dense
           bg-color='white'
           ref='nuMessage'
+          style='font-size: 18px'
           >
             <template v-slot:after >
-              <q-btn round dense flat icon="send" type="submit" @click='submeter' />
+              <q-btn
+                round
+                dense
+                flat
+                icon="send"
+                type="submit"
+                @click='submeter'
+                color='light-green-10' />
             </template>
           </q-input>
         </q-form>
@@ -124,5 +137,6 @@ export default {
 }
 </script>
 
-<style >
+<style lang='stylus' >
+
 </style>
