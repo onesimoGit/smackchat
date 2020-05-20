@@ -116,6 +116,7 @@ export default {
     }
   },
   mounted () {
+    alert('fuck fuck fuck')
     this.firebaseGetMessages(this.$route.params.blablabla)
   },
   computed: {
